@@ -12,20 +12,24 @@
     	<table class="table">
 		  <thead>
 		    <tr>
-		      <th scope="col">#</th>
 		      <th scope="col">Student Name</th>
 		      <th scope="col">Grade</th>
+		      <th scope="col">Gender</th>
+		      <th scope="col">DOB</th>
+		      {%if request.user == classroom.teacher %}
 		      <th scope="col">Update</th>
 		      <th scope="col">Delete</th>
+		      {%endif%}
 
 		    </tr>
 		  </thead>
 		  <tbody>
 		  	{%for stn in students %}
 		    <tr>
-		      <th scope="row">{{stn.id}}</th>
 		      <td>{{stn.name}}</td>
 		      <td>{{stn.exam_grade}}</td>
+		      <td>{{stn.gender}}</td>
+		      <td>{{stn.date_of_birth}}</td>
 		      {%if request.user == classroom.teacher%}
 			    <td><a href="{% url 'student-update' classroom.id stn.id %}" class="btn" style="background-color: #000034; color: white;">Update</a></td>
 			    <td><a href="{% url 'student-delete' classroom.id stn.id %}" class="btn" style="background-color: #FFA500; color: #000034;">Delete</a></td>

@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class ClassroomForm(forms.ModelForm):
     class Meta:
         model = Classroom
-        fields = '__all__'
+        exclude = ['teacher']
 
 class StudentForm(forms.ModelForm):
     class Meta:
